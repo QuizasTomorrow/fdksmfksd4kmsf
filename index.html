@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ariana 💛</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(
+                180deg,
+                #17112b 0%,
+                #302052 45%,
+                #f29f67 100%
+            );
+            color: white;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: .7;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: .2;
+                transform: scale(.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            width: min(700px, 95%);
+            padding: 45px 30px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .10);
+            border: 1px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 60px rgba(0,0,0,.3);
+        }
+
+        .small {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 13px;
+            opacity: .8;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 9vw, 75px);
+            color: #ffe66d;
+            text-shadow: 0 0 25px rgba(255, 220, 60, .5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            line-height: 1.6;
+            opacity: .9;
+            margin-bottom: 30px;
+        }
+
+        .flower {
+            font-size: 90px;
+            display: inline-block;
+            animation: floatFlower 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(255,220,50,.4));
+        }
+
+        @keyframes floatFlower {
+            0%, 100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(4deg);
+            }
+        }
+
+        button {
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: #ffd83d;
+            color: #4b3510;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255,210,50,.3);
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 12px 30px rgba(255,210,50,.5);
+        }
+
+        .letter {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .letter.open {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 30px;
+        }
+
+        .letter-box {
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.15);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .letter-box strong {
+            color: #ffe66d;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-family: Georgia, serif;
+            font-size: 25px;
+            color: #ffe66d;
+        }
+
+        .bottom-text {
+            margin-top: 25px;
+            font-size: 13px;
+            opacity: .65;
+        }
+
+        .falling-flower {
+            position: fixed;
+            top: -50px;
+            font-size: 25px;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            font-size: 20px;
+            animation: heartFloat 3s linear forwards;
+            z-index: 10;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(0) scale(.5);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-250px) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        @media(max-width:600px) {
+            .card {
+                padding: 35px 20px;
+            }
+
+            .flower {
+                font-size: 70px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .letter-box {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars" id="stars"></div>
+
+    <main class="container">
+
+        <section class="card">
+
+            <div class="small">Una pequeña sorpresa para</div>
+
+            <div class="flower">🌻</div>
+
+            <h1>Ariana</h1>
+
+            <p class="subtitle">
+                Hay detalles que parecen pequeños,
+                pero pueden decir muchísimo.
+                <br>
+                Y hoy quería dejarte uno de ellos. 💛
+            </p>
+
+            <button onclick="openLetter()">
+                Abrir mi mensaje 🌻
+            </button>
+
+            <div class="letter" id="letter">
+
+                <div class="letter-box">
+
+                    <p>
+                        <strong>Ariana,</strong>
+                    </p>
+
+                    <p>
+                        Te dejo estas flores amarillas porque
+                        representan algo sencillo pero bonito:
+                        alegría, cariño y esos pequeños momentos
+                        que hacen que un día cualquiera se vuelva especial.
+                    </p>
+
+                    <p>
+                        No hace falta una gran ocasión para regalar
+                        una flor. A veces simplemente quieres decirle
+                        a alguien:
+                    </p>
+
+                    <p>
+                        <strong>
+                            "Pensé en ti y quise que tu día tuviera
+                            un poquito más de color."
+                        </strong>
+                    </p>
+
+                    <p>
+                        Así que estas flores son para ti. 🌻💛
+                    </p>
+
+                    <div class="signature">
+                        Para Ariana ♡
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="bottom-text">
+                Hecho especialmente para ti ✨
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        // Crear estrellas
+        const stars = document.getElementById("stars");
+
+        for (let i = 0; i < 100; i++) {
+
+            const star = document.createElement("div");
+
+            star.classList.add("star");
+
+            star.style.left = Math.random() * 100 + "%";
+            star.style.top = Math.random() * 70 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            stars.appendChild(star);
+        }
+
+
+        // Abrir carta
+        function openLetter() {
+
+            const letter =
+                document.getElementById("letter");
+
+            letter.classList.toggle("open");
+
+            createHearts();
+
+            if (letter.classList.contains("open")) {
+
+                document.querySelector("button").innerHTML =
+                    "Cerrar mensaje 💛";
+
+            } else {
+
+                document.querySelector("button").innerHTML =
+                    "Abrir mi mensaje 🌻";
+            }
+        }
+
+
+        // Crear flores cayendo
+        function createFlower() {
+
+            const flower =
+                document.createElement("div");
+
+            flower.classList.add("falling-flower");
+
+            flower.innerHTML =
+                Math.random() > .5 ? "🌻" : "🌼";
+
+            flower.style.left =
+                Math.random() * 100 + "vw";
+
+            flower.style.fontSize =
+                (18 + Math.random() * 25) + "px";
+
+            flower.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
+
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+        }
+
+
+        // Crear flores constantemente
+        setInterval(createFlower, 900);
+
+
+        // Corazones
+        function createHearts() {
+
+            for (let i = 0; i < 15; i++) {
+
+                setTimeout(() => {
+
+                    const heart =
+                        document.createElement("div");
+
+                    heart.classList.add("heart");
+
+                    heart.innerHTML =
+                        Math.random() > .5 ? "💛" : "✨";
+
+                    heart.style.left =
+                        (35 + Math.random() * 30) + "vw";
+
+                    heart.style.top =
+                        (50 + Math.random() * 20) + "vh";
+
+                    heart.style.animationDuration =
+                        (2 + Math.random() * 2) + "s";
+
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+
+                }, i * 100);
+            }
+        }
+
+
+        // Efecto al hacer clic en cualquier parte
+        document.addEventListener("click", function(e) {
+
+            if (e.target.tagName === "BUTTON") return;
+
+            const heart =
+                document.createElement("div");
+
+            heart.classList.add("heart");
+
+            heart.innerHTML = "💛";
+
+            heart.style.left = e.clientX + "px";
+            heart.style.top = e.clientY + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        });
+
+    </script>
+
+</body>
+</html>
